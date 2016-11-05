@@ -3,7 +3,8 @@
 LinkShare is a...
 
 ## Core stories
-- [ ] User should be able to:
+
+#### User should be able to:
 - [ ] Sign in (pick the least painful oauth provider)
 - [ ] View a list of his/her shared links sorted by date
 - [ ] Search/filter through your list of shared links (by user-who-shared/title)
