@@ -14,8 +14,8 @@ LinkShare is a...
 - [ ] Share a link from Safari using the Action sheet
 - [ ] Hide shared links that they are no longer using
 - [ ] Turn on/off notifications
-- [ ] Ability to star/highlight for later (bookmark) a link
-- [ ] Ability to forward invite to non-app user via email / text / iMessage (open the mail composer, sms composer with pre-populated content)
+- [ ] Star/highlight for later (bookmark) a link
+- [ ] Forward invite to non-app user via email / text / iMessage (open the mail composer, sms composer with pre-populated content)
 
 ## Dependent APIs
 - [ ] Firebase realtime db/cloud messaging/authentication
