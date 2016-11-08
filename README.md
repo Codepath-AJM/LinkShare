@@ -1,6 +1,6 @@
 # LinkShare
 
-LinkShare is a...
+LinkShare is an iPhone application that allows you to share and discuss web links with your friends. Simply open any link, share it with your friends, and chat away! 
 
 ## Core stories
 
@@ -28,6 +28,9 @@ LinkShare is a...
 - [ ] Overlay stickers/images on the shared link
 - [ ] Store content for offline viewing
 
+## Wireframes
+[Option 1](Wireframes1.pdf)
 
+[Option 2](wireframes2.pdf)
 
 
