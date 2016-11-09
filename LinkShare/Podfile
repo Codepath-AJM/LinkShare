@@ -6,5 +6,6 @@ target 'LinkShare' do
   use_frameworks!
 
   # Pods for LinkShare
+	pod ‘Firebase/Core’
 
 end
