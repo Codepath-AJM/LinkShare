@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0B1C6274CC42BB7CE95CE394 /* Pods_LinkShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F659CB568673E2A291F41473 /* Pods_LinkShare.framework */; };
+		762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC51DD490B40047DEA9 /* Friend.swift */; };
+		762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */; };
+		762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC91DD493AE0047DEA9 /* User.swift */; };
+		762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5ECB1DD495B70047DEA9 /* Bookmark.swift */; };
 		76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE7F11DD2CF4B0012E6C3 /* AppDelegate.swift */; };
 		76ECE7F41DD2CF4B0012E6C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */; };
 		76ECE7F71DD2CF4B0012E6C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE7F51DD2CF4B0012E6C3 /* Main.storyboard */; };
@@ -21,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		4334350976CE5ED90777097F /* Pods-LinkShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.release.xcconfig"; sourceTree = "<group>"; };
+		762D5EC51DD490B40047DEA9 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipStatus.swift; sourceTree = "<group>"; };
+		762D5EC91DD493AE0047DEA9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		762D5ECB1DD495B70047DEA9 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		76ECE7EE1DD2CF4B0012E6C3 /* LinkShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ECE7F11DD2CF4B0012E6C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +130,10 @@
 				E08C9B3C1DD3E4620024C210 /* Shareable.swift */,
 				E08C9B3E1DD3E7360024C210 /* Link.swift */,
 				E08C9B401DD3E9B60024C210 /* Comment.swift */,
+				762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */,
+				762D5EC51DD490B40047DEA9 /* Friend.swift */,
+				762D5EC91DD493AE0047DEA9 /* User.swift */,
+				762D5ECB1DD495B70047DEA9 /* Bookmark.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -266,7 +278,11 @@
 			files = (
 				E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */,
 				76ECE7F41DD2CF4B0012E6C3 /* ViewController.swift in Sources */,
+				762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */,
+				762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */,
 				76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */,
+				762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */,
+				762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */,
 				E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */,
 				E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */,
 			);
