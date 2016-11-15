@@ -18,6 +18,8 @@
 		76ECE7F91DD2CF4B0012E6C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE7F81DD2CF4B0012E6C3 /* Assets.xcassets */; };
 		76ECE7FC1DD2CF4B0012E6C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE7FA1DD2CF4B0012E6C3 /* LaunchScreen.storyboard */; };
 		76ECE8051DD2D1350012E6C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE8041DD2D1350012E6C3 /* GoogleService-Info.plist */; };
+		93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */; };
+		93F6E8FE1DDB10F0002E267A /* FirebaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */; };
 		E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3C1DD3E4620024C210 /* Shareable.swift */; };
 		E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3E1DD3E7360024C210 /* Link.swift */; };
 		E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B401DD3E9B60024C210 /* Comment.swift */; };
@@ -38,6 +40,8 @@
 		76ECE7FD1DD2CF4B0012E6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76ECE8031DD2CF7A0012E6C3 /* LinkShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkShare.entitlements; sourceTree = "<group>"; };
 		76ECE8041DD2D1350012E6C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseBase.swift; sourceTree = "<group>"; };
 		C20428EDAF61057173DE6635 /* Pods-LinkShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.debug.xcconfig"; sourceTree = "<group>"; };
 		E08C9B3C1DD3E4620024C210 /* Shareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
 		E08C9B3E1DD3E7360024C210 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		E08C9B381DD3E3950024C210 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 		E08C9B391DD3E3AD0024C210 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -181,9 +187,11 @@
 				TargetAttributes = {
 					76ECE7ED1DD2CF4B0012E6C3 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 2L97647J48;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -279,8 +287,10 @@
 				E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */,
 				76ECE7F41DD2CF4B0012E6C3 /* ViewController.swift in Sources */,
 				762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */,
+				93F6E8FE1DDB10F0002E267A /* FirebaseBase.swift in Sources */,
 				762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */,
 				76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */,
+				93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */,
 				762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */,
 				762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */,
 				E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */,
@@ -407,8 +417,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LinkShare/LinkShare.entitlements;
-				DEVELOPMENT_TEAM = 2L97647J48;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LinkShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath-ajm.LinkShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,8 +433,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LinkShare/LinkShare.entitlements;
-				DEVELOPMENT_TEAM = 2L97647J48;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LinkShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath-ajm.LinkShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";

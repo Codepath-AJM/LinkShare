@@ -8,11 +8,13 @@
 
 import Foundation
 
-class User {
+class User: NSObject {
     var id: String
     var email: String
     var name: String?
     var imageURL: URL?
+    
+    static var currentUser: User?
     
     init(dictionary: [String: Any]) {
         // TODO: Update initializer
@@ -20,5 +22,12 @@ class User {
         email = dictionary["email"] as! String
         name = dictionary["name"] as? String
         imageURL = dictionary["imageURL"] as? URL
+    }
+    
+    init(id: String, email: String, name: String?, imageURL: URL?) {
+        self.id = id
+        self.email = email
+        self.name = name
+        self.imageURL = imageURL
     }
 }

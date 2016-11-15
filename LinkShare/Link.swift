@@ -29,4 +29,25 @@ class Link: Shareable {
         title = dictionary["title"] as? String
         url = dictionary["url"] as! URL
     }
+    
+    init(id: String, authorID: String, comments: [Comment]?, userIDs: [String], modifiedDate: Date, lastReadDate: Dictionary<String, Date>?, title: String?, url: URL) {
+        self.id = id
+        self.authorID = authorID
+        self.comments = comments
+        self.userIDs = userIDs
+        self.modifiedDate = modifiedDate
+        self.lastReadDate = lastReadDate
+        self.title = title
+        self.url = url
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "id": id,
+            "authorID": authorID,
+            "modifiedDate": modifiedDate.timeIntervalSince1970.description,
+            "title": title!,
+            "url": url.absoluteString
+        ]
+    }
 }

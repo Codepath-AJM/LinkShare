@@ -15,4 +15,6 @@ protocol Shareable {
     var userIDs: [String] { get set }
     var modifiedDate: Date { get set }
     var lastReadDate: Dictionary<String, Date>? { get set }
+    
+    func toAnyObject() -> Any
 }
