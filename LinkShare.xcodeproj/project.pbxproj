@@ -12,6 +12,8 @@
 		762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */; };
 		762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC91DD493AE0047DEA9 /* User.swift */; };
 		762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5ECB1DD495B70047DEA9 /* Bookmark.swift */; };
+		769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */; };
+		769955F91DDBFCB90033D26B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769955F81DDBFCB90033D26B /* CardCell.swift */; };
 		76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE7F11DD2CF4B0012E6C3 /* AppDelegate.swift */; };
 		76ECE7F41DD2CF4B0012E6C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */; };
 		76ECE7F71DD2CF4B0012E6C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE7F51DD2CF4B0012E6C3 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipStatus.swift; sourceTree = "<group>"; };
 		762D5EC91DD493AE0047DEA9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		762D5ECB1DD495B70047DEA9 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		769955F81DDBFCB90033D26B /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		76ECE7EE1DD2CF4B0012E6C3 /* LinkShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ECE7F11DD2CF4B0012E6C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */,
+				769955F81DDBFCB90033D26B /* CardCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */,
+				769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,9 +297,11 @@
 				762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */,
 				76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */,
 				93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */,
+				769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */,
 				762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */,
 				762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */,
 				E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */,
+				769955F91DDBFCB90033D26B /* CardCell.swift in Sources */,
 				E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
