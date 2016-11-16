@@ -14,10 +14,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func authenticationComplete() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "mainTabBarController")
+        window?.rootViewController = tabBarController
+    }
+    
+    func returnToAuth() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let authVC = storyboard.instantiateInitialViewController() {
+            window?.rootViewController = authVC
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs
         FIRApp.configure()
+        
+        // User is signed in, otherwise let Storyboard take user to the sign in screen
+        if FIRAuth.auth()?.currentUser != nil {
+            authenticationComplete()
+        }
         
         return true
     }

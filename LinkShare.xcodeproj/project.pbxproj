@@ -21,6 +21,7 @@
 		76ECE7FC1DD2CF4B0012E6C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE7FA1DD2CF4B0012E6C3 /* LaunchScreen.storyboard */; };
 		76ECE8051DD2D1350012E6C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE8041DD2D1350012E6C3 /* GoogleService-Info.plist */; };
 		93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */; };
+		934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */; };
 		93F6E8FE1DDB10F0002E267A /* FirebaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */; };
 		E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3C1DD3E4620024C210 /* Shareable.swift */; };
 		E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3E1DD3E7360024C210 /* Link.swift */; };
@@ -45,6 +46,7 @@
 		76ECE8031DD2CF7A0012E6C3 /* LinkShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkShare.entitlements; sourceTree = "<group>"; };
 		76ECE8041DD2D1350012E6C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseBase.swift; sourceTree = "<group>"; };
 		C20428EDAF61057173DE6635 /* Pods-LinkShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.debug.xcconfig"; sourceTree = "<group>"; };
 		E08C9B3C1DD3E4620024C210 /* Shareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
@@ -121,7 +123,6 @@
 		E08C9B381DD3E3950024C210 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */,
 				769955F81DDBFCB90033D26B /* CardCell.swift */,
 			);
 			name = Views;
@@ -152,8 +153,10 @@
 		E08C9B3B1DD3E3BC0024C210 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */,
+				93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */,
 				769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */,
+				76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */,
+				934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */,
 				769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */,
 				762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */,
+				934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */,
 				762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */,
 				E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */,
 				769955F91DDBFCB90033D26B /* CardCell.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class AuthenticationViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
@@ -15,9 +16,11 @@ class AuthenticationViewController: UIViewController {
     
     let authComplete: FIRAuthResultCallback = { (user: FIRUser?, error: Error?) in
         if let error = error {
-            print(error.localizedDescription)
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
             return
         }
+        
+        SVProgressHUD.dismiss()
         
         if let user = user, let email = user.email {
             User.currentUser = User(id: user.uid, email: email, name: user.displayName, imageURL: user.photoURL)
@@ -26,16 +29,23 @@ class AuthenticationViewController: UIViewController {
             let shareable: Shareable = Link(id: "asdf\(randomNumber)", authorID: user.uid, comments: nil, userIDs: [user.uid], modifiedDate: Date(), lastReadDate: nil, title: "A title_\(randomNumber)", url: URL(string: "http://www.google.com")!)
             FIRDatabase.database().reference().child("shareables").child("asdf\(randomNumber)").setValue(shareable.toAnyObject())
         }
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.authenticationComplete()
+        }
+        
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
+        SVProgressHUD.show()
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: authComplete)
     }
     @IBAction func signInPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
+        SVProgressHUD.show()
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: authComplete)
     }
 }

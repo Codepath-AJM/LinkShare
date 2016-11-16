@@ -7,7 +7,8 @@ target 'LinkShare' do
 
   # Pods for LinkShare
 	pod 'Firebase/Auth'
-	pod ‘Firebase/Core’
+	pod 'Firebase/Core'
 	pod 'Firebase/Database'
+        pod 'SVProgressHUD'
 
 end
