@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class User: NSObject {
     var id: String
@@ -16,12 +17,8 @@ class User: NSObject {
     
     static var currentUser: User?
     
-    init(dictionary: [String: Any]) {
-        // TODO: Update initializer
-        id = dictionary["id"] as! String
-        email = dictionary["email"] as! String
-        name = dictionary["name"] as? String
-        imageURL = dictionary["imageURL"] as? URL
+    init?(firebaseSnapshot: FIRDataSnapshot) {
+        
     }
     
     init(id: String, email: String, name: String?, imageURL: URL?) {

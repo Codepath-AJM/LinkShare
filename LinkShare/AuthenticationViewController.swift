@@ -26,7 +26,7 @@ class AuthenticationViewController: UIViewController {
             User.currentUser = User(id: user.uid, email: email, name: user.displayName, imageURL: user.photoURL)
             
             let randomNumber = arc4random_uniform(UINT32_MAX)
-            let shareable: Shareable = Link(id: "asdf\(randomNumber)", authorID: user.uid, comments: nil, userIDs: [user.uid], modifiedDate: Date(), lastReadDate: nil, title: "A title_\(randomNumber)", url: URL(string: "http://www.google.com")!)
+            let shareable: Shareable = Link(id: "asdf\(randomNumber)", authorID: user.uid, comments: [], users: [user.uid], modifiedDate: Date(), lastReadDate: nil, title: "A title_\(randomNumber)", url: URL(string: "http://www.google.com")!)
             FIRDatabase.database().reference().child("shareables").child("asdf\(randomNumber)").setValue(shareable.toAnyObject())
         }
         

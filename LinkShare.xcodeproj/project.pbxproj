@@ -22,7 +22,7 @@
 		76ECE8051DD2D1350012E6C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE8041DD2D1350012E6C3 /* GoogleService-Info.plist */; };
 		93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */; };
 		934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */; };
-		93F6E8FE1DDB10F0002E267A /* FirebaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */; };
+		93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */; };
 		E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3C1DD3E4620024C210 /* Shareable.swift */; };
 		E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3E1DD3E7360024C210 /* Link.swift */; };
 		E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B401DD3E9B60024C210 /* Comment.swift */; };
@@ -47,7 +47,7 @@
 		76ECE8041DD2D1350012E6C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseBase.swift; sourceTree = "<group>"; };
+		93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		C20428EDAF61057173DE6635 /* Pods-LinkShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.debug.xcconfig"; sourceTree = "<group>"; };
 		E08C9B3C1DD3E4620024C210 /* Shareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
 		E08C9B3E1DD3E7360024C210 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		E08C9B391DD3E3AD0024C210 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				93F6E8FD1DDB10F0002E267A /* FirebaseBase.swift */,
+				93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 				E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */,
 				76ECE7F41DD2CF4B0012E6C3 /* ViewController.swift in Sources */,
 				762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */,
-				93F6E8FE1DDB10F0002E267A /* FirebaseBase.swift in Sources */,
+				93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */,
 				762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */,
 				76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */,
 				93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */,
