@@ -59,30 +59,41 @@ class AuthenticationViewController: UIViewController {
             SVProgressHUD.dismiss()
             
             if let user = user, let email = user.email {
-                var newUser: User!
-                if let displayName = self?.displayName {
-                    newUser = User(id: user.uid, email: email, name: displayName, imageURL: user.photoURL)
-                } else {
-                    newUser = User(id: user.uid, email: email, name: user.displayName ?? "No name", imageURL: user.photoURL)
+                let userReady = { (user: User?) in
+                    guard let user = user else {
+                        SVProgressHUD.showError(withStatus: NSLocalizedString("Unexpected error, could not find user.", comment: ""))
+                        return
+                    }
+                    
+                    User.currentUser = user
+                    
+                    // Demo code, create a new shared link shared to nobody but the implicit share to current user, then put a comment on it with every login/registration for now.
+                    
+                    let randomNumber = arc4random_uniform(UINT32_MAX)
+                    let linkID = FirebaseAPI.sharedInstance.createSharedLink(url: "http://www.google.co.uk", title: "Google UK \(randomNumber)", users: nil)
+                    
+                    if let linkID = linkID {
+                        FirebaseAPI.sharedInstance.linkForID(linkID: linkID, completion: { (link: Link?) in
+                            if let link = link {
+                                FirebaseAPI.sharedInstance.createComment(onLink: link, body: "Google UK! \(randomNumber)")
+                            }
+                        })
+                    }
+                    
+                    if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                        appDelegate.authenticationComplete()
+                    }
                 }
                 
-                FirebaseAPI.sharedInstance.registerNewUser(user: newUser)
-                User.currentUser = newUser
-                
-                // Demo code, create a new shared link shared to nobody but the implicit share to current user, then put a comment on it.
-                let linkID = FirebaseAPI.sharedInstance.createSharedLink(url: "http://www.google.co.uk", title: "Google UK", users: nil)
-                
-                if let linkID = linkID {
-                    FirebaseAPI.sharedInstance.linkForID(linkID: linkID, completion: { (link: Link?) in
-                        if let link = link {
-                            FirebaseAPI.sharedInstance.createComment(onLink: link, body: "Google UK!")
-                        }
+                if let displayName = self?.displayName {
+                    let authedUser = User(id: user.uid, email: email, name: displayName, imageURL: user.photoURL)
+                    FirebaseAPI.sharedInstance.registerNewUser(user: authedUser)
+                    userReady(authedUser)
+                } else {
+                    FirebaseAPI.sharedInstance.userForID(userID: user.uid, completion: { (user: User?) in
+                        userReady(user)
                     })
                 }
-            }
-            
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                appDelegate.authenticationComplete()
             }
         }
         
