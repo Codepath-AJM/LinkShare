@@ -12,45 +12,42 @@ import Firebase
 class Link: Shareable {
     var id: String
     var authorID: String
-    var comments: [Comment]
-    var users: [User]
+    var comments: [Comment] = []
+    var users: [User] = []
     var modifiedDate: Date
     var lastReadDate: TimeInterval?
     var title: String?
     var url: URL
     
     init?(firebaseSnapshot: FIRDataSnapshot) {
-        guard firebaseSnapshot.hasChild("authorID") && firebaseSnapshot.hasChild("url") && firebaseSnapshot.hasChild("users") else { return nil }
+        guard firebaseSnapshot.hasChild("authorID") && firebaseSnapshot.hasChild("url") && firebaseSnapshot.hasChild("users") && firebaseSnapshot.hasChild("modifiedDate") else { return nil }
         
-        guard let urlString = firebaseSnapshot.childSnapshot(forPath: "url").value as? String, let url = URL(string: urlString) else { return nil }
+        guard let urlString = firebaseSnapshot.childSnapshot(forPath: "url").value as? String, let derivedURL = URL(string: urlString) else { return nil }
         
-        self.id = firebaseSnapshot.key
-        self.authorID = firebaseSnapshot.childSnapshot(forPath: "authorID").value as! String
-        self.url = url
-        self.title = firebaseSnapshot.childSnapshot(forPath: "title").value as? String
+        id = firebaseSnapshot.key
+        authorID = firebaseSnapshot.childSnapshot(forPath: "authorID").value as! String
+        url = derivedURL
+        title = firebaseSnapshot.childSnapshot(forPath: "title").value as? String
+        modifiedDate = Date(timeIntervalSince1970: (firebaseSnapshot.childSnapshot(forPath: "modifiedDate").value as! NSString).doubleValue)
         
         let commentsSnapshot = firebaseSnapshot.childSnapshot(forPath: "comments")
-        if commentsSnapshot.childrenCount > 0 {
-            var commentsList: [Comment] = []
+        if commentsSnapshot.exists() && commentsSnapshot.hasChildren() {
             let enumerator = commentsSnapshot.children
             while let commentRaw = enumerator.nextObject() as? FIRDataSnapshot {
                 if let comment = Comment(firebaseSnapshot: commentRaw) {
-                    commentsList.append(comment)
+                    comments.append(comment)
                 }
             }
-            self.comments = commentsList
         }
         
         let usersSnapshot = firebaseSnapshot.childSnapshot(forPath: "users")
-        if usersSnapshot.childrenCount > 0 {
-            var usersList: [User] = []
+        if usersSnapshot.exists() && usersSnapshot.hasChildren() {
             let enumerator = usersSnapshot.children
             while let userRaw = enumerator.nextObject() as? FIRDataSnapshot {
                 if let user = User(firebaseSnapshot: userRaw) {
-                    usersList.append(user)
+                    users.append(user)
                 }
             }
-            self.users = usersList
         }
         
         let defaultsLastReadDate = UserDefaults.standard.double(forKey: "lastReadDate-\(firebaseSnapshot.key)")
