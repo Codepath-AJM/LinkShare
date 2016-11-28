@@ -23,6 +23,9 @@
 		93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */; };
 		934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */; };
 		93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */; };
+		E08314761DEBA0090027D398 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08314751DEBA0080027D398 /* LinkViewController.swift */; };
+		E083147C1DEBFA770027D398 /* ChatTrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E083147B1DEBFA770027D398 /* ChatTrayView.xib */; };
+		E083147E1DEBFAAE0027D398 /* ChatTrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */; };
 		E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3C1DD3E4620024C210 /* Shareable.swift */; };
 		E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3E1DD3E7360024C210 /* Link.swift */; };
 		E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B401DD3E9B60024C210 /* Comment.swift */; };
@@ -49,6 +52,9 @@
 		934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		C20428EDAF61057173DE6635 /* Pods-LinkShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.debug.xcconfig"; sourceTree = "<group>"; };
+		E08314751DEBA0080027D398 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
+		E083147B1DEBFA770027D398 /* ChatTrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTrayView.xib; sourceTree = "<group>"; };
+		E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTrayView.swift; sourceTree = "<group>"; };
 		E08C9B3C1DD3E4620024C210 /* Shareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
 		E08C9B3E1DD3E7360024C210 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		E08C9B401DD3E9B60024C210 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				769955F81DDBFCB90033D26B /* CardCell.swift */,
+				E083147B1DEBFA770027D398 /* ChatTrayView.xib */,
+				E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 				769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */,
 				76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */,
 				934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */,
+				E08314751DEBA0080027D398 /* LinkViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E083147C1DEBFA770027D398 /* ChatTrayView.xib in Resources */,
 				76ECE7FC1DD2CF4B0012E6C3 /* LaunchScreen.storyboard in Resources */,
 				76ECE8051DD2D1350012E6C3 /* GoogleService-Info.plist in Resources */,
 				76ECE7F91DD2CF4B0012E6C3 /* Assets.xcassets in Resources */,
@@ -295,11 +305,13 @@
 			files = (
 				E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */,
 				76ECE7F41DD2CF4B0012E6C3 /* ViewController.swift in Sources */,
+				E08314761DEBA0090027D398 /* LinkViewController.swift in Sources */,
 				762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */,
 				93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */,
 				762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */,
 				76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */,
 				93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */,
+				E083147E1DEBFAAE0027D398 /* ChatTrayView.swift in Sources */,
 				769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */,
 				762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */,
 				934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */,
