@@ -57,6 +57,10 @@ class FeedTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showLinkSegue", sender: self)
+    }
 
     
     /*

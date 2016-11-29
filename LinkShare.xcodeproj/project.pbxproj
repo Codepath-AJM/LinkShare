@@ -26,6 +26,7 @@
 		E08314761DEBA0090027D398 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08314751DEBA0080027D398 /* LinkViewController.swift */; };
 		E083147C1DEBFA770027D398 /* ChatTrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E083147B1DEBFA770027D398 /* ChatTrayView.xib */; };
 		E083147E1DEBFAAE0027D398 /* ChatTrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */; };
+		E08314801DED5E540027D398 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E083147F1DED5E540027D398 /* ChatViewController.swift */; };
 		E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3C1DD3E4620024C210 /* Shareable.swift */; };
 		E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3E1DD3E7360024C210 /* Link.swift */; };
 		E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B401DD3E9B60024C210 /* Comment.swift */; };
@@ -55,6 +56,7 @@
 		E08314751DEBA0080027D398 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		E083147B1DEBFA770027D398 /* ChatTrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTrayView.xib; sourceTree = "<group>"; };
 		E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTrayView.swift; sourceTree = "<group>"; };
+		E083147F1DED5E540027D398 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E08C9B3C1DD3E4620024C210 /* Shareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
 		E08C9B3E1DD3E7360024C210 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		E08C9B401DD3E9B60024C210 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				76ECE7F31DD2CF4B0012E6C3 /* ViewController.swift */,
 				934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */,
 				E08314751DEBA0080027D398 /* LinkViewController.swift */,
+				E083147F1DED5E540027D398 /* ChatViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				E083147E1DEBFAAE0027D398 /* ChatTrayView.swift in Sources */,
 				769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */,
 				762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */,
+				E08314801DED5E540027D398 /* ChatViewController.swift in Sources */,
 				934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */,
 				762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */,
 				E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */,
