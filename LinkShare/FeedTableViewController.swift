@@ -71,9 +71,14 @@ class FeedTableViewController: UITableViewController {
         
         let comments = self.links[indexPath.row].comments
         cell.commentsLabel.text = String(comments.count)
-
+        
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showLinkSegue", sender: self)
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

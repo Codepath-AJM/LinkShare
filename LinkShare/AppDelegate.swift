@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // User is signed in, otherwise let Storyboard take user to the sign in screen
         if FIRAuth.auth()?.currentUser != nil {
-            authenticationComplete()
+//            authenticationComplete()
         }
         
         return true
