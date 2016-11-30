@@ -7,11 +7,42 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class FeedTableViewController: UITableViewController {
-
+    
+    var links = [Link]()
+    var linkAuthors = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
+        
+        FirebaseAPI.sharedInstance.linksForCurrentUser(completion: {
+            linksArray in
+            self.links = linksArray
+            
+            if self.links.count == 0 {
+                SVProgressHUD.showInfo(withStatus: "Looks like you have don't have any links. Start sharing!")
+            } else {
+                for link in self.links {
+                    FirebaseAPI.sharedInstance.userForID(userID: link.authorID, completion: {
+                        user in
+                        
+                        if let name = user?.name {
+                            self.linkAuthors.append(name)
+                        }
+                        
+                        // if link is last link in array, then dismiss progress indicator and reload the table view
+                        let linkIndex = self.links.index{$0 === link}
+                        if linkIndex == self.links.endIndex - 1 {
+                            SVProgressHUD.dismiss()
+                            self.tableView.reloadData()
+                        }
+                    })
+                }
+            }
+        })
 
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -21,11 +52,6 @@ class FeedTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - Table view data source
     
@@ -34,26 +60,17 @@ class FeedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return links.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
         
-        if indexPath.row == 1 {
-            cell.bookmarkButton.imageView?.image = #imageLiteral(resourceName: "bookmark-filled")
-            cell.titleLabel.text = "AirPods Production Said to Begin in December in Limited Quantities"
-            cell.detailsLabel.text = "MacRumors • November 11"
-            cell.commentsLabel.text = "7"
-            cell.userImage2.isHidden = true
-            cell.userImage3.isHidden = true
-            cell.userImage4.isHidden = true
-        } else if indexPath.row == 2 {
-            cell.titleLabel.text = "Here's how to see the biggest supermoon since 1948"
-            cell.detailsLabel.text = "CNN • November 2"
-            cell.commentsLabel.text = "16"
-            cell.userImage4.isHidden = true
-        }
+        cell.titleLabel.text = self.links[indexPath.row].title
+        cell.detailsLabel.text = "Shared by \(linkAuthors[indexPath.row])"
+        
+        let comments = self.links[indexPath.row].comments
+        cell.commentsLabel.text = String(comments.count)
         
         return cell
     }
@@ -62,16 +79,6 @@ class FeedTableViewController: UITableViewController {
         performSegue(withIdentifier: "showLinkSegue", sender: self)
     }
 
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.

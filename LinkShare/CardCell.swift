@@ -23,12 +23,6 @@ class CardCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        userImage1.layer.cornerRadius = 15
-        userImage2.layer.cornerRadius = 15
-        userImage3.layer.cornerRadius = 15
-        userImage4.layer.cornerRadius = 15
-        authorImage.layer.cornerRadius = 15
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

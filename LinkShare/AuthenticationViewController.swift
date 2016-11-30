@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SVProgressHUD
+import FirebaseAuth
 
 class AuthenticationViewController: UIViewController {
     @IBOutlet var authTypeSegmentedControl: UISegmentedControl!

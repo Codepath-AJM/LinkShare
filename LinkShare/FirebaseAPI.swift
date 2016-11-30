@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 
 class FirebaseAPI {
     static let sharedInstance: FirebaseAPI = FirebaseAPI()
@@ -52,6 +53,7 @@ class FirebaseAPI {
         }
         
         linksRef.child(uniqueID).setValue(value)
+        usersRef.child(currentUser.id).updateChildValues(["linkIDs": [uniqueID]])
         
         return uniqueID
     }
@@ -92,28 +94,33 @@ class FirebaseAPI {
             return
         }
         
-        usersRef.child(currentUser.id).child("links").observeSingleEvent(of: .value) { [weak self] (snapshot: FIRDataSnapshot) in
+        usersRef.child(currentUser.id).child("linkIDs").observeSingleEvent(of: .value) { [weak self] (snapshot: FIRDataSnapshot) in
             guard snapshot.exists() && snapshot.hasChildren() else { return }
             
             var linkIDs: [String] = []
             let enumerator = snapshot.children
             
             while let linkID = enumerator.nextObject() as? FIRDataSnapshot {
-                linkIDs.append(linkID.key)
+                linkIDs.append(linkID.value as! String)
             }
             
             linkIDs.forEach {
                 let linkID = $0
-                self?.linksRef.queryOrdered(byChild: "createdAt").queryEqual(toValue: linkID).observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
-                    guard snapshot.exists() && snapshot.hasChildren() else { return }
+                
+                self?.linksRef.child(linkID).observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
+                    guard snapshot.exists() else { return }
                     
-                    let enumerator = snapshot.children
-                    
-                    while let linkRaw = enumerator.nextObject() as? FIRDataSnapshot {
-                        if let link = Link(firebaseSnapshot: linkRaw) {
-                            links.append(link)
-                        }
+                    //let enumerator = snapshot.children
+                    if let link = Link(firebaseSnapshot: snapshot) {
+                        links.append(link)
                     }
+                    
+                    // not sure if this is needed. commenting out for now
+//                    while let linkRaw = enumerator.nextObject() as? FIRDataSnapshot {
+//                        if let link = Link(firebaseSnapshot: linkRaw) {
+//                            links.append(link)
+//                        }
+//                    }
                     
                     completion(links)
                 })
