@@ -13,11 +13,6 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
-    @IBOutlet weak var authorImage: UIImageView!
-    @IBOutlet weak var userImage1: UIImageView!
-    @IBOutlet weak var userImage2: UIImageView!
-    @IBOutlet weak var userImage3: UIImageView!
-    @IBOutlet weak var userImage4: UIImageView!
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     
@@ -33,14 +28,10 @@ class CardCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardView.alpha = 1
         cardView.layer.masksToBounds = false
-        cardView.layer.cornerRadius = 1
-        cardView.layer.shadowOffset = CGSize(width: -0.2, height: 0.2)
-        cardView.layer.shadowRadius = 1
-        cardView.layer.shadowOpacity = 0.2
-        
-        let path = UIBezierPath(rect: cardView.bounds)
-        cardView.layer.shadowPath = path.cgPath
+        cardView.layer.cornerRadius = 2
+        cardView.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cardView.layer.shadowOpacity = 0.8
     }
 }
