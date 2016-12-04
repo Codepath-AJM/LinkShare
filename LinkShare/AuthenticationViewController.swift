@@ -11,29 +11,45 @@ import Firebase
 import SVProgressHUD
 import FirebaseAuth
 
-class AuthenticationViewController: UIViewController {
-    @IBOutlet var authTypeSegmentedControl: UISegmentedControl!
+class AuthenticationViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet var emailTextField: UITextField!
+    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var displayNameLabel: UILabel!
     @IBOutlet var displayNameTextField: UITextField!
-    @IBOutlet var authActionButton: UIBarButtonItem!
+    @IBOutlet weak var authActionButton: UIButton!
+
+    @IBOutlet weak var emailLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var displayNameLabelTopConstraint: NSLayoutConstraint!
+
+    public var authType: AuthenticationType!
     
     private var displayName: String?
     
-    @IBAction func authModeToggled(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureTextFields()
+        
+        if authType == .login {
             displayNameLabel.isHidden = true
             displayNameTextField.isHidden = true
-            authActionButton.title = NSLocalizedString("Sign In", comment: "")
-        } else {
+            authActionButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
+        } else if authType == .signup {
             displayNameLabel.isHidden = false
             displayNameTextField.isHidden = false
-            authActionButton.title = NSLocalizedString("Sign Up", comment: "")
+            authActionButton.setTitle(NSLocalizedString("Sign Up", comment: ""), for: .normal)
         }
     }
     
-    @IBAction func authActionButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func cancelAuthentication(_ sender: UIButton) {
+        self.view.endEditing(true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func authActionButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text else {
             SVProgressHUD.showError(withStatus: NSLocalizedString("Please provide a username.", comment: ""))
             return
@@ -44,7 +60,7 @@ class AuthenticationViewController: UIViewController {
             return
         }
         
-        if authTypeSegmentedControl.selectedSegmentIndex == 1 {
+        if authType == .signup {
             guard displayNameTextField.text != nil else {
                 SVProgressHUD.showError(withStatus: NSLocalizedString("Please provide a display name.", comment: ""))
                 return
@@ -58,6 +74,7 @@ class AuthenticationViewController: UIViewController {
             }
             
             SVProgressHUD.dismiss()
+            self?.view.endEditing(true)
             
             if let user = user, let email = user.email {
                 let userReady = { (user: User?) in
@@ -100,11 +117,72 @@ class AuthenticationViewController: UIViewController {
         
         SVProgressHUD.show()
         
-        if authTypeSegmentedControl.selectedSegmentIndex == 0 {
+        if authType == .login {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: authComplete)
         } else {
             displayName = displayNameTextField.text
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: authComplete)
+        }
+    }
+    
+    public enum AuthenticationType {
+        case login
+        case signup
+    }
+    
+    // - MARK: Text Field Delegate Methods
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // handle text entered in field
+        if textField.text == "" {
+            if textField === emailTextField {
+                label(emailLabel, withConstraint: emailLabelTopConstraint, isDisplayed: true)
+            } else if textField === passwordTextField {
+                label(passwordLabel, withConstraint: passwordLabelTopConstraint, isDisplayed: true)
+            } else if textField === displayNameTextField {
+                label(displayNameLabel, withConstraint: displayNameLabelTopConstraint, isDisplayed: true)
+            }
+        }
+        
+        if textField.text?.characters.count == 1 && string == "" {
+            if textField === emailTextField {
+                label(emailLabel, withConstraint: emailLabelTopConstraint, isDisplayed: false)
+            } else if textField === passwordTextField {
+                label(passwordLabel, withConstraint: passwordLabelTopConstraint, isDisplayed: false)
+            } else if textField === displayNameTextField {
+                label(displayNameLabel, withConstraint: displayNameLabelTopConstraint, isDisplayed: false)
+            }
+        }
+        
+        return true
+    }
+    
+    // - MARK: Helper Methods
+    func configureTextFields() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        displayNameTextField.delegate = self
+        
+        emailTextField.becomeFirstResponder()
+        
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"Email address", attributes: [NSForegroundColorAttributeName: UIColor.gray])
+        
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSForegroundColorAttributeName: UIColor.gray])
+        
+        displayNameTextField.attributedPlaceholder = NSAttributedString(string:"Display name", attributes: [NSForegroundColorAttributeName: UIColor.gray])
+    }
+    
+    func label(_ label: UILabel, withConstraint constraint: NSLayoutConstraint, isDisplayed: Bool) {
+        if isDisplayed {
+            UIView.animate(withDuration: 0.5, animations: {
+                label.textColor = UIColor.gray.withAlphaComponent(1.0)
+                label.center.y -= 31
+                constraint.constant -= 31
+            })
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                label.center.y += 31
+                constraint.constant += 31
+            })
         }
     }
 }
