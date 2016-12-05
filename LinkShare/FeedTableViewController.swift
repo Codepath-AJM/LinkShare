@@ -60,18 +60,26 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
-        
-        cell.titleLabel.text = self.links[indexPath.row].title
+        let link = links[indexPath.row]
+        cell.link = link
         cell.detailsLabel.text = "Shared by \(linkAuthors[indexPath.row])"
         
-        let comments = self.links[indexPath.row].comments
-        cell.commentsLabel.text = String(comments.count)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showLinkSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let selectedCell = tableView.cellForRow(at: indexPath!) as! CardCell
+        let link = selectedCell.link
+        
+        let nav = segue.destination as! UINavigationController
+        let destionationVC = nav.topViewController as! LinkViewController
+        destionationVC.link = link
     }
 
 }

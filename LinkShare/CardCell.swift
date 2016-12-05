@@ -10,6 +10,15 @@ import UIKit
 
 class CardCell: UITableViewCell {
     
+    var link: Link? {
+        didSet {
+            titleLabel.text = link?.title
+            if let commentsCount = link?.comments.count {
+                commentsLabel.text = "\(commentsCount)"
+            }
+        }
+    }
+    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
