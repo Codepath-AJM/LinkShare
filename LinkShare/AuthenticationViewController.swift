@@ -72,7 +72,6 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
                 return
             }
-            
             SVProgressHUD.dismiss()
             self?.view.endEditing(true)
             
@@ -82,8 +81,13 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                         SVProgressHUD.showError(withStatus: NSLocalizedString("Unexpected error, could not find user.", comment: ""))
                         return
                     }
-                    
+                    // set user to UserDefaults for easy access
+                    let defaults = UserDefaults.standard
+                    let data = try! JSONSerialization.data(withJSONObject: user.dictionary)
+                    defaults.set(data, forKey: "current_user")
+                    defaults.synchronize()
                     User.currentUser = user
+
                     
                     // Demo code, create a new shared link shared to nobody but the implicit share to current user, then put a comment on it with every login/registration for now.
                     

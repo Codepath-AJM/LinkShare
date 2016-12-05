@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func authenticationComplete() {
+        
+        // set user from defaults and TRY to set currentUser - fail gracefully
+        let data = UserDefaults.standard.object(forKey: "current_user") as? Data
+        let dictionary = try? JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+        if  dictionary != nil {
+            User.currentUser = User(dictionary: dictionary!)
+        }
+        
+        FirebaseAPI.sharedInstance.allUsers {
+            (userIds) in
+            print(userIds)
+        }
+        
+        // send user to app
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = storyboard.instantiateViewController(withIdentifier: "mainTabBarController")
         window?.rootViewController = tabBarController
@@ -37,9 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // User is signed in, otherwise let Storyboard take user to the sign in screen
         if FIRAuth.auth()?.currentUser != nil {
-//            authenticationComplete()
+            self.authenticationComplete()
         }
-        
         return true
     }
 

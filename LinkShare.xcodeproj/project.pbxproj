@@ -23,6 +23,11 @@
 		93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93134DC41DDB16F7002628C5 /* AuthenticationViewController.swift */; };
 		934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */; };
 		93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */; };
+		E079F3F01DF3CD1C00B9D731 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E079F3EF1DF3CD1C00B9D731 /* ShareViewController.swift */; };
+		E079F3F31DF3CD1C00B9D731 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E079F3F11DF3CD1C00B9D731 /* MainInterface.storyboard */; };
+		E079F3F71DF3CD1C00B9D731 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E079F3ED1DF3CD1C00B9D731 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E079F3FD1DF3CDAE00B9D731 /* GetURL.js in Resources */ = {isa = PBXBuildFile; fileRef = E079F3FC1DF3CDAE00B9D731 /* GetURL.js */; };
+		E079F4001DF4ED6100B9D731 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E079F3FF1DF4ED6100B9D731 /* SettingsCell.swift */; };
 		E08314761DEBA0090027D398 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08314751DEBA0080027D398 /* LinkViewController.swift */; };
 		E083147C1DEBFA770027D398 /* ChatTrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E083147B1DEBFA770027D398 /* ChatTrayView.xib */; };
 		E083147E1DEBFAAE0027D398 /* ChatTrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */; };
@@ -31,6 +36,30 @@
 		E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B3E1DD3E7360024C210 /* Link.swift */; };
 		E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C9B401DD3E9B60024C210 /* Comment.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E079F3F51DF3CD1C00B9D731 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76ECE7E61DD2CF4B0012E6C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E079F3EC1DF3CD1C00B9D731;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E079F3FB1DF3CD1C00B9D731 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E079F3F71DF3CD1C00B9D731 /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4334350976CE5ED90777097F /* Pods-LinkShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,6 +82,12 @@
 		934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		93F6E8FD1DDB10F0002E267A /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		C20428EDAF61057173DE6635 /* Pods-LinkShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkShare/Pods-LinkShare.debug.xcconfig"; sourceTree = "<group>"; };
+		E079F3ED1DF3CD1C00B9D731 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E079F3EF1DF3CD1C00B9D731 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		E079F3F21DF3CD1C00B9D731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E079F3F41DF3CD1C00B9D731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E079F3FC1DF3CDAE00B9D731 /* GetURL.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = GetURL.js; sourceTree = "<group>"; };
+		E079F3FF1DF4ED6100B9D731 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		E08314751DEBA0080027D398 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		E083147B1DEBFA770027D398 /* ChatTrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTrayView.xib; sourceTree = "<group>"; };
 		E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTrayView.swift; sourceTree = "<group>"; };
@@ -72,6 +107,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E079F3EA1DF3CD1C00B9D731 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				76ECE7F01DD2CF4B0012E6C3 /* LinkShare */,
+				E079F3EE1DF3CD1C00B9D731 /* ShareExtension */,
 				76ECE7EF1DD2CF4B0012E6C3 /* Products */,
 				AF55B6F6B3AA402A8CFD4D2C /* Pods */,
 				92F2F1F4AB6D9A7179175833 /* Frameworks */,
@@ -89,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				76ECE7EE1DD2CF4B0012E6C3 /* LinkShare.app */,
+				E079F3ED1DF3CD1C00B9D731 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,12 +172,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E079F3EE1DF3CD1C00B9D731 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E079F3EF1DF3CD1C00B9D731 /* ShareViewController.swift */,
+				E079F3F11DF3CD1C00B9D731 /* MainInterface.storyboard */,
+				E079F3F41DF3CD1C00B9D731 /* Info.plist */,
+				E079F3FC1DF3CDAE00B9D731 /* GetURL.js */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		E08C9B381DD3E3950024C210 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				769955F81DDBFCB90033D26B /* CardCell.swift */,
 				E083147B1DEBFA770027D398 /* ChatTrayView.xib */,
 				E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */,
+				E079F3FF1DF4ED6100B9D731 /* SettingsCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -186,15 +242,34 @@
 				76ECE7EC1DD2CF4B0012E6C3 /* Resources */,
 				2A9B0FFEE1EBCCD6B37265A9 /* [CP] Embed Pods Frameworks */,
 				93C43B2B9FE62286420E96C3 /* [CP] Copy Pods Resources */,
+				E079F3FB1DF3CD1C00B9D731 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E079F3F61DF3CD1C00B9D731 /* PBXTargetDependency */,
 			);
 			name = LinkShare;
 			productName = LinkShare;
 			productReference = 76ECE7EE1DD2CF4B0012E6C3 /* LinkShare.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E079F3EC1DF3CD1C00B9D731 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E079F3F81DF3CD1C00B9D731 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				E079F3E91DF3CD1C00B9D731 /* Sources */,
+				E079F3EA1DF3CD1C00B9D731 /* Frameworks */,
+				E079F3EB1DF3CD1C00B9D731 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = E079F3ED1DF3CD1C00B9D731 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -218,6 +293,10 @@
 							};
 						};
 					};
+					E079F3EC1DF3CD1C00B9D731 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 76ECE7E91DD2CF4B0012E6C3 /* Build configuration list for PBXProject "LinkShare" */;
@@ -234,6 +313,7 @@
 			projectRoot = "";
 			targets = (
 				76ECE7ED1DD2CF4B0012E6C3 /* LinkShare */,
+				E079F3EC1DF3CD1C00B9D731 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +328,15 @@
 				76ECE8051DD2D1350012E6C3 /* GoogleService-Info.plist in Resources */,
 				76ECE7F91DD2CF4B0012E6C3 /* Assets.xcassets in Resources */,
 				76ECE7F71DD2CF4B0012E6C3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E079F3EB1DF3CD1C00B9D731 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E079F3F31DF3CD1C00B9D731 /* MainInterface.storyboard in Resources */,
+				E079F3FD1DF3CDAE00B9D731 /* GetURL.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +397,7 @@
 			files = (
 				E08C9B411DD3E9B60024C210 /* Comment.swift in Sources */,
 				76ECE7F41DD2CF4B0012E6C3 /* MainViewController.swift in Sources */,
+				E079F4001DF4ED6100B9D731 /* SettingsCell.swift in Sources */,
 				E08314761DEBA0090027D398 /* LinkViewController.swift in Sources */,
 				762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */,
 				93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */,
@@ -326,7 +416,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E079F3E91DF3CD1C00B9D731 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E079F3F01DF3CD1C00B9D731 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E079F3F61DF3CD1C00B9D731 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E079F3EC1DF3CD1C00B9D731 /* ShareExtension */;
+			targetProxy = E079F3F51DF3CD1C00B9D731 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		76ECE7F51DD2CF4B0012E6C3 /* Main.storyboard */ = {
@@ -343,6 +449,14 @@
 				76ECE7FB1DD2CF4B0012E6C3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E079F3F11DF3CD1C00B9D731 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E079F3F21DF3CD1C00B9D731 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -443,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C20428EDAF61057173DE6635 /* Pods-LinkShare.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LinkShare/LinkShare.entitlements;
 				DEVELOPMENT_TEAM = "";
@@ -459,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4334350976CE5ED90777097F /* Pods-LinkShare.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LinkShare/LinkShare.entitlements;
 				DEVELOPMENT_TEAM = "";
@@ -467,6 +583,32 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath-ajm.LinkShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E079F3F91DF3CD1C00B9D731 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath-ajm.LinkShare.ShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E079F3FA1DF3CD1C00B9D731 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath-ajm.LinkShare.ShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -488,6 +630,15 @@
 			buildConfigurations = (
 				76ECE8011DD2CF4B0012E6C3 /* Debug */,
 				76ECE8021DD2CF4B0012E6C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E079F3F81DF3CD1C00B9D731 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E079F3F91DF3CD1C00B9D731 /* Debug */,
+				E079F3FA1DF3CD1C00B9D731 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

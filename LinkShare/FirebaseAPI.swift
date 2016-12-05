@@ -79,9 +79,30 @@ class FirebaseAPI {
     
     func userForID(userID: String, completion: @escaping (User?) -> Void) {
         usersRef.child(userID).observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
-            guard snapshot.exists() && snapshot.hasChildren() else { return }
-            
             completion(User(firebaseSnapshot: snapshot))
+        }
+    }
+    
+    // Get a list of all users in the app (No time for making friends!)
+    func allUsers(completion: @escaping ([User]) -> Void) {
+        var users: [User] = []
+        guard let currentUser = User.currentUser else {
+            completion(users)
+            return
+        }
+        
+        usersRef.observeSingleEvent(of: .value) {
+            (snapshot: FIRDataSnapshot) in
+            guard snapshot.exists() && snapshot.hasChildren() else { return }
+
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                if (child.key != currentUser.id) {
+                    if let user = User(firebaseSnapshot: child) {
+                        users.append(user)
+                    }
+                }
+            }
+            completion(users)
         }
     }
     
