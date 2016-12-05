@@ -10,19 +10,21 @@ import UIKit
 import WebKit
 
 class LinkViewController: UIViewController, WKUIDelegate {
+    
+    var link: Link?
 
-    var webView: WKWebView!
+    private var webView: WKWebView!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
 
     // chat drawer
-    var trayView: ChatTrayView!
-    var trayOriginalCenter: CGPoint!
-    var trayDownOffset: CGFloat!
-    var trayUp: CGPoint!
-    var trayDown: CGPoint!
+    private var trayView: ChatTrayView!
+    private var trayOriginalCenter: CGPoint!
+    private var trayDownOffset: CGFloat!
+    private var trayUp: CGPoint!
+    private var trayDown: CGPoint!
     
     required init?(coder aDecoder: NSCoder) {
         let webConfig = WKWebViewConfiguration()
@@ -42,7 +44,7 @@ class LinkViewController: UIViewController, WKUIDelegate {
         view.addConstraints([height, width])
 
         // load url
-        let myURL = URL(string: "https://www.apple.com")
+        let myURL = link?.url
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         
