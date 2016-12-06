@@ -42,7 +42,7 @@ class FirebaseAPI {
         if let users = users {
             users.forEach {
                 usersForFirebase[$0] = true
-                usersRef.child($0).child("linkIDs").updateChildValues([$0: true])
+                //usersRef.child($0).child("linkIDs").updateChildValues([$0: true])
             }
         }
         
@@ -53,7 +53,7 @@ class FirebaseAPI {
         }
         
         linksRef.child(uniqueID).setValue(value)
-        usersRef.child(currentUser.id).updateChildValues(["linkIDs": [uniqueID]])
+        usersRef.child(currentUser.id).child("linkIDs").updateChildValues([uniqueID: false])
         
         return uniqueID
     }
@@ -107,8 +107,8 @@ class FirebaseAPI {
     }
     
     // Get a list of hydrated Link objects for use in the UI
-    func linksForCurrentUser(completion: @escaping ([Link]) -> Void) {
-        var links: [Link] = []
+    func linksForCurrentUser(onlyBookmarks: Bool, completion: @escaping ([(link: Link, bookmarked: Bool)]) -> Void) {
+        var links = [(link: Link, bookmarked: Bool)]()
         
         guard let currentUser = User.currentUser else {
             completion(links)
@@ -118,22 +118,25 @@ class FirebaseAPI {
         usersRef.child(currentUser.id).child("linkIDs").observeSingleEvent(of: .value) { [weak self] (snapshot: FIRDataSnapshot) in
             guard snapshot.exists() && snapshot.hasChildren() else { return }
             
-            var linkIDs: [String] = []
+            var linkIDs = [(id: String, bookmarked: Bool)]()
             let enumerator = snapshot.children
             
             while let linkID = enumerator.nextObject() as? FIRDataSnapshot {
-                linkIDs.append(linkID.value as! String)
+                // add link if not only bookmarks or link is bookmarked based on parameter
+                if !onlyBookmarks || (linkID.value as? Bool == true) {
+                    linkIDs.append((linkID.key, linkID.value as! Bool))
+                }
             }
             
             linkIDs.forEach {
                 let linkID = $0
                 
-                self?.linksRef.child(linkID).observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
+                self?.linksRef.child(linkID.id).observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
                     guard snapshot.exists() else { return }
                     
                     //let enumerator = snapshot.children
                     if let link = Link(firebaseSnapshot: snapshot) {
-                        links.append(link)
+                        links.append((link, linkID.bookmarked))
                     }
                     
                     // not sure if this is needed. commenting out for now

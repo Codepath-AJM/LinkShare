@@ -1,5 +1,5 @@
 //
-//  CardCell.swift
+//  LinkCell.swift
 //  LinkShare
 //
 //  Created by Marisa Toodle on 11/15/16.
@@ -8,14 +8,17 @@
 
 import UIKit
 
-class CardCell: UITableViewCell {
+class LinkCell: UITableViewCell {
     
-    var link: Link? {
+    var link: (link: Link, bookmarked: Bool)? {
         didSet {
-            titleLabel.text = link?.title
-            if let commentsCount = link?.comments.count {
+            titleLabel.text = link?.link.title
+            if let commentsCount = link?.link.comments.count {
                 commentsLabel.text = "\(commentsCount)"
             }
+            
+            let bookmarkImg = (link?.bookmarked)! ? #imageLiteral(resourceName: "bookmark-filled") : #imageLiteral(resourceName: "bookmark-outline")
+            bookmarkButton.setImage(bookmarkImg, for: .normal)
         }
     }
     
@@ -25,14 +28,12 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @IBAction func bookmark() {
+        
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
     
     override func layoutSubviews() {

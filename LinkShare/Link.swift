@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-class Link: Shareable {
+class Link: Shareable, Equatable {
     var id: String
     var authorID: String
     var comments: [Comment] = []
@@ -81,5 +81,9 @@ class Link: Shareable {
             "title": title!,
             "url": url.absoluteString
         ]
+    }
+    
+    static func ==(lhs: Link, rhs: Link) -> Bool {
+        return lhs.id == rhs.id
     }
 }

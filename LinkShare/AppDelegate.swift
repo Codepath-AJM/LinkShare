@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func authenticationComplete() {
         
         // set user from defaults and TRY to set currentUser - fail gracefully
-        let data = UserDefaults.standard.object(forKey: "current_user") as? Data
-        let dictionary = try? JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+        guard let data = UserDefaults.standard.object(forKey: "current_user") as? Data else { return }
+        
+        let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
         if  dictionary != nil {
             User.currentUser = User(dictionary: dictionary!)
         }
