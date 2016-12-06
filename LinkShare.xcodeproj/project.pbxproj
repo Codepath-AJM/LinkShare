@@ -12,8 +12,10 @@
 		762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */; };
 		762D5ECA1DD493AE0047DEA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5EC91DD493AE0047DEA9 /* User.swift */; };
 		762D5ECC1DD495B70047DEA9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D5ECB1DD495B70047DEA9 /* Bookmark.swift */; };
+		7677EE521DF681010079D0D8 /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7677EE511DF681010079D0D8 /* LinkCell.xib */; };
+		7677EE541DF684F70079D0D8 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677EE531DF684F70079D0D8 /* BookmarksViewController.swift */; };
 		769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */; };
-		769955F91DDBFCB90033D26B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769955F81DDBFCB90033D26B /* CardCell.swift */; };
+		769955F91DDBFCB90033D26B /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769955F81DDBFCB90033D26B /* LinkCell.swift */; };
 		76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE7F11DD2CF4B0012E6C3 /* AppDelegate.swift */; };
 		76ECE7F41DD2CF4B0012E6C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE7F31DD2CF4B0012E6C3 /* MainViewController.swift */; };
 		76ECE7F71DD2CF4B0012E6C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ECE7F51DD2CF4B0012E6C3 /* Main.storyboard */; };
@@ -67,8 +69,10 @@
 		762D5EC71DD490E40047DEA9 /* FriendshipStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipStatus.swift; sourceTree = "<group>"; };
 		762D5EC91DD493AE0047DEA9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		762D5ECB1DD495B70047DEA9 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		7677EE511DF681010079D0D8 /* LinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
+		7677EE531DF684F70079D0D8 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		769955F61DDBFC7D0033D26B /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
-		769955F81DDBFCB90033D26B /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		769955F81DDBFCB90033D26B /* LinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		76ECE7EE1DD2CF4B0012E6C3 /* LinkShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ECE7F11DD2CF4B0012E6C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ECE7F31DD2CF4B0012E6C3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -186,10 +190,11 @@
 		E08C9B381DD3E3950024C210 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				769955F81DDBFCB90033D26B /* CardCell.swift */,
+				769955F81DDBFCB90033D26B /* LinkCell.swift */,
 				E083147B1DEBFA770027D398 /* ChatTrayView.xib */,
 				E083147D1DEBFAAE0027D398 /* ChatTrayView.swift */,
 				E079F3FF1DF4ED6100B9D731 /* SettingsCell.swift */,
+				7677EE511DF681010079D0D8 /* LinkCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				934EA2641DDC36D3006BCE0A /* SettingsViewController.swift */,
 				E08314751DEBA0080027D398 /* LinkViewController.swift */,
 				E083147F1DED5E540027D398 /* ChatViewController.swift */,
+				7677EE531DF684F70079D0D8 /* BookmarksViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E083147C1DEBFA770027D398 /* ChatTrayView.xib in Resources */,
+				7677EE521DF681010079D0D8 /* LinkCell.xib in Resources */,
 				76ECE7FC1DD2CF4B0012E6C3 /* LaunchScreen.storyboard in Resources */,
 				76ECE8051DD2D1350012E6C3 /* GoogleService-Info.plist in Resources */,
 				76ECE7F91DD2CF4B0012E6C3 /* Assets.xcassets in Resources */,
@@ -403,6 +410,7 @@
 				93F6E8FE1DDB10F0002E267A /* FirebaseAPI.swift in Sources */,
 				762D5EC81DD490E40047DEA9 /* FriendshipStatus.swift in Sources */,
 				76ECE7F21DD2CF4B0012E6C3 /* AppDelegate.swift in Sources */,
+				7677EE541DF684F70079D0D8 /* BookmarksViewController.swift in Sources */,
 				93134DC51DDB16F7002628C5 /* AuthenticationViewController.swift in Sources */,
 				E083147E1DEBFAAE0027D398 /* ChatTrayView.swift in Sources */,
 				769955F71DDBFC7D0033D26B /* FeedTableViewController.swift in Sources */,
@@ -411,7 +419,7 @@
 				934EA2651DDC36D3006BCE0A /* SettingsViewController.swift in Sources */,
 				762D5EC61DD490B40047DEA9 /* Friend.swift in Sources */,
 				E08C9B3D1DD3E4620024C210 /* Shareable.swift in Sources */,
-				769955F91DDBFCB90033D26B /* CardCell.swift in Sources */,
+				769955F91DDBFCB90033D26B /* LinkCell.swift in Sources */,
 				E08C9B3F1DD3E7360024C210 /* Link.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

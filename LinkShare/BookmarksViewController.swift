@@ -1,15 +1,18 @@
 //
-//  FeedTableViewController.swift
+//  BookmarksViewController.swift
 //  LinkShare
 //
-//  Created by Marisa Toodle on 11/15/16.
+//  Created by Marisa Toodle on 12/6/16.
 //  Copyright © 2016 codepath-ajm. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SVProgressHUD
 
-class FeedTableViewController: UITableViewController {
+class BookmarksViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var links = [(link: Link, bookmarked: Bool)]()
     var linkAuthors = [String]()
@@ -22,7 +25,7 @@ class FeedTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 134
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        FirebaseAPI.sharedInstance.linksForCurrentUser(onlyBookmarks: false, completion: {
+        FirebaseAPI.sharedInstance.linksForCurrentUser(onlyBookmarks: true, completion: {
             linksArray in
             self.links = linksArray
             
@@ -51,34 +54,20 @@ class FeedTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return links.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LinkCell", for: indexPath) as! LinkCell
         let link = links[indexPath.row]
         cell.link = link
         cell.detailsLabel.text = "Shared by \(linkAuthors[indexPath.row])"
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showLinkSegue", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = tableView.indexPathForSelectedRow
-        let selectedCell = tableView.cellForRow(at: indexPath!) as! LinkCell
-        let link = selectedCell.link?.link
-        
-        let nav = segue.destination as! UINavigationController
-        let destionationVC = nav.topViewController as! LinkViewController
-        destionationVC.link = link
     }
 }
