@@ -62,8 +62,18 @@ class FirebaseAPI {
     func createComment(onLink link: Link, body: String) {
         guard let currentUser = User.currentUser else { return }
         
-        linksRef.child(link.id).child("comments").childByAutoId().setValue(["authorName": currentUser.name, "body": body, "createdAt": Date().timeIntervalSince1970.description])
-        linksRef.child(link.id).child("modifiedDate").setValue(Date().timeIntervalSince1970.description)
+        let itemRef = linksRef.child(link.id).child("comments").childByAutoId()
+        let messageItem = [
+            "authorId": currentUser.id,
+            "authorName": currentUser.name,
+            "body": body,
+            "createdAt": Date().timeIntervalSince1970.description
+        ]
+        itemRef.setValue(messageItem)
+    }
+    
+    func getCommentRef(onLink link: Link) -> FIRDatabaseReference {
+        return linksRef.child(link.id).child("comments")
     }
     
     
@@ -122,7 +132,7 @@ class FirebaseAPI {
             let enumerator = snapshot.children
             
             while let linkID = enumerator.nextObject() as? FIRDataSnapshot {
-                linkIDs.append(linkID.value as! String)
+                linkIDs.append(linkID.key)
             }
             
             linkIDs.forEach {

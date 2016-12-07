@@ -14,6 +14,7 @@ class LinkViewController: UIViewController, WKUIDelegate {
     var link: Link?
 
     private var webView: WKWebView!
+    private var chatVC: ChatViewController!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -34,7 +35,7 @@ class LinkViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(webView)
         view.sendSubview(toBack: webView)
@@ -54,27 +55,28 @@ class LinkViewController: UIViewController, WKUIDelegate {
         forwardButton.isEnabled = false
         
         // add ChatTrayView programatically
-        trayView = ChatTrayView(frame: CGRect(x: 0, y: view.bounds.height - 60, width: view.bounds.width, height: view.bounds.height - 120))
+        trayView = ChatTrayView(frame: CGRect(x: 0, y: view.bounds.height - 60, width: view.bounds.width, height: view.bounds.height - 60))
         view.addSubview(trayView)
         
         trayDownOffset = 60
-        trayUp = CGPoint(x: view.center.x, y: view.center.y) // change to 60
+        trayUp = CGPoint(x: view.center.x, y: view.center.y + 30)
         trayDown = trayView.center
-        
-        // load chat view
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let chatViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController")
-        addChildViewController(chatViewController)
-        chatViewController.view.frame = CGRect(x: 0, y: 60, width: trayView.bounds.width, height: trayView.bounds.height)
-        trayView.addSubview(chatViewController.view)
-        chatViewController.didMove(toParentViewController: self)
         
         // add gesture recognizers
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(LinkViewController.didPanTray(_:)))
         trayView.addGestureRecognizer(panGestureRecognizer)
-
+        
         // add observer to webView to handle back and forward buttons
         webView.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
+        
+//        // load chat view
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        chatVC = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        chatVC.link = link
+        addChildViewController(chatVC)
+        chatVC.view.frame = CGRect(x: 0, y: 60, width: trayView.bounds.width, height: trayView.bounds.height - (chatVC.inputToolbar.contentView.frame.height + 15))
+        trayView.addSubview(chatVC.view)
+        chatVC.didMove(toParentViewController: self)
     }
 
     override func didReceiveMemoryWarning() {
