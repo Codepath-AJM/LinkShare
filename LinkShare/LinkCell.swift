@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LinkCell: UITableViewCell {
     
@@ -29,11 +30,27 @@ class LinkCell: UITableViewCell {
     @IBOutlet weak var bookmarkButton: UIButton!
     
     @IBAction func bookmark() {
-        
+        bookmarkButton.isEnabled = false
+        SVProgressHUD.show()
+        FirebaseAPI.sharedInstance.bookmarkLink(linkID: (link?.link.id)!, completion: {
+            completed, bookmarked in
+            
+            if !completed {
+                SVProgressHUD.showError(withStatus: "There was an error processing your request. Please try again.")
+                self.bookmarkButton.isEnabled = true
+            }
+            
+            let bookmarkImg = bookmarked! ? #imageLiteral(resourceName: "bookmark-filled") : #imageLiteral(resourceName: "bookmark-outline")
+            self.bookmarkButton.setImage(bookmarkImg, for: .normal)
+            SVProgressHUD.dismiss()
+            self.bookmarkButton.isEnabled = true
+        })
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {
