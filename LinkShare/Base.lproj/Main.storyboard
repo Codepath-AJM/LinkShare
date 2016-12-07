@@ -271,6 +271,7 @@
                                 <color key="backgroundColor" red="0.84887005650000003" green="0.84887005650000003" blue="0.84887005650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="myx-XZ-ZMq" id="T7a-Xk-iYc"/>
+                                    <outlet property="delegate" destination="myx-XZ-ZMq" id="xQI-jV-fT7"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -284,34 +285,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Bookmarks" id="ccB-UF-5Z3"/>
                     <connections>
-                        <outlet property="tableView" destination="dQy-9i-XHL" id="wBL-Rg-fRE"/>
+                        <outlet property="tableView" destination="dQy-9i-XHL" id="zJ5-mn-H7R"/>
+                        <segue destination="MOJ-Vs-dZh" kind="presentation" identifier="showLinkSegue" id="bUT-az-35N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgR-dT-878" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1872.8" y="122.78860569715144"/>
-        </scene>
-        <!--Feed-->
-        <scene sceneID="KXJ-Mz-Rfw">
-            <objects>
-                <tableViewController id="yXP-eF-kuY" customClass="FeedTableViewController" customModule="LinkShare" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="173" sectionHeaderHeight="28" sectionFooterHeight="28" id="TI4-xT-mSy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.84887005650000003" green="0.84887005650000003" blue="0.84887005650000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="yXP-eF-kuY" id="SkU-no-7GB"/>
-                            <outlet property="delegate" destination="yXP-eF-kuY" id="lPX-GY-hst"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Feed" id="fr6-HW-PGG"/>
-                    <connections>
-                        <segue destination="MOJ-Vs-dZh" kind="presentation" identifier="showLinkSegue" id="0Sk-Dp-uCH"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xTI-j5-z5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1872.8" y="-705.69715142428788"/>
         </scene>
         <!--Link View Controller-->
         <scene sceneID="bEa-Lm-cdn">
@@ -359,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdn-Gd-GeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761" y="-706"/>
+            <point key="canvasLocation" x="2729" y="-295"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="efn-nt-vuy">
@@ -398,12 +378,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="yXP-eF-kuY" kind="relationship" relationship="rootViewController" id="D8g-wu-jNu"/>
+                        <segue destination="Wre-28-jo6" kind="relationship" relationship="rootViewController" id="hrH-ig-YoP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REK-kf-G5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1872.8" y="-788.45577211394311"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="tCP-Pm-r8s">
+            <objects>
+                <viewController id="Wre-28-jo6" customClass="FeedViewController" customModule="LinkShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BQv-qi-MxV"/>
+                        <viewControllerLayoutGuide type="bottom" id="6BV-8A-CLR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Sb-oF-3fg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="173" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="unB-ED-OYk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.84887005650000003" green="0.84887005650000003" blue="0.84887005650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wre-28-jo6" id="p1z-O1-9tE"/>
+                                    <outlet property="delegate" destination="Wre-28-jo6" id="OEx-Jb-exU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="unB-ED-OYk" secondAttribute="bottom" id="1N7-e3-8A4"/>
+                            <constraint firstItem="unB-ED-OYk" firstAttribute="top" secondItem="9Sb-oF-3fg" secondAttribute="top" id="4b4-f1-TzY"/>
+                            <constraint firstItem="unB-ED-OYk" firstAttribute="leading" secondItem="9Sb-oF-3fg" secondAttribute="leading" id="fW2-zu-Tih"/>
+                            <constraint firstAttribute="trailing" secondItem="unB-ED-OYk" secondAttribute="trailing" id="gOs-HZ-d7o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Feed" id="Mlj-yw-sPd"/>
+                    <connections>
+                        <outlet property="tableView" destination="unB-ED-OYk" id="uvE-Ro-Trl"/>
+                        <segue destination="MOJ-Vs-dZh" kind="presentation" identifier="showLinkSegue" id="lDl-G8-Sqs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0Q-M9-7DG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="-706"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="B29-mj-PK0">
@@ -467,7 +486,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bob-Hu-L2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761" y="-788"/>
+            <point key="canvasLocation" x="2729" y="-378"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="2ul-9b-GBY">
@@ -497,5 +516,8 @@
         <image name="refresh" width="22" height="22"/>
         <image name="settings" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lDl-G8-Sqs"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.85098039215686272" green="0.70196078431372544" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -66,6 +66,27 @@ class FirebaseAPI {
         linksRef.child(link.id).child("modifiedDate").setValue(Date().timeIntervalSince1970.description)
     }
     
+    func bookmarkLink(linkID: String, completion: @escaping (_ completed: Bool, _ bookmarked: Bool?) -> Void) {
+        guard let currentUser = User.currentUser else {
+            completion(false, nil)
+            return
+        }
+        
+        usersRef.child(currentUser.id).child("linkIDs").child(linkID).observeSingleEvent(of: .value) {
+            (snapshot: FIRDataSnapshot) in
+                guard snapshot.exists() else {
+                    completion(false, nil)
+                    return
+                }
+            
+                // if link is currently unbookmarked, bookmark. Else, unbookmark link
+                let currentVal = snapshot.value as? Bool ?? false
+            
+                self.usersRef.child(currentUser.id).child("linkIDs").updateChildValues([linkID: !currentVal])
+            
+                completion(true, !currentVal)
+        }
+    }
     
     // MARK: - Generate model objects from data from Firebase
     
