@@ -82,7 +82,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     // set user to UserDefaults for easy access
-                    let defaults = UserDefaults.standard
+                    let defaults = UserDefaults.init(suiteName: "group.com.linkshare")!
                     let data = try! JSONSerialization.data(withJSONObject: user.dictionary)
                     defaults.set(data, forKey: "current_user")
                     defaults.synchronize()

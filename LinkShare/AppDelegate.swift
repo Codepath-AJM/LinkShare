@@ -19,16 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func authenticationComplete() {
         
         // set user from defaults and TRY to set currentUser - fail gracefully
-        guard let data = UserDefaults.standard.object(forKey: "current_user") as? Data else { return }
+        guard let data = UserDefaults.init(suiteName: "group.com.linkshare")!.object(forKey: "current_user") as? Data else { return }
         
         let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
         if  dictionary != nil {
             User.currentUser = User(dictionary: dictionary!)
-        }
-        
-        FirebaseAPI.sharedInstance.allUsers {
-            (userIds) in
-            print(userIds)
         }
         
         // send user to app

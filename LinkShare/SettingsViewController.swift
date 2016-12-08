@@ -71,9 +71,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         do {
             try FIRAuth.auth()?.signOut()
             // remove user from defaults
-            UserDefaults.standard.set(nil, forKey: "current_user")
             
-            // transition back to auth page
+            UserDefaults.init(suiteName: "group.com.linkshare")!.set(nil, forKey: "current_user")
+            
+            // transition back to auth page 
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                 appDelegate.returnToAuth()
             }
